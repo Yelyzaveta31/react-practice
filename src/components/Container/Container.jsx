@@ -1,18 +1,5 @@
-import { StatisticsListItem } from "../StatisticsListItem/StatisticsListItem";
+import s from "./Container.module.css";
 
-export const StatisticsList = ({ stats, title }) => {
-  return (
-    <div>
-      {title && <h2>{title}</h2>}
-      <ul>
-        {stats.map((item) => {
-          return (
-            <li key={item.id}>
-              <StatisticsListItem title={item.title} total={item.total} />
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
+export const Container = ({ children }) => {
+  return <div className={s.container}>{children}</div>;
 };

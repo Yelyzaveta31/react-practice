@@ -1,4 +1,4 @@
-export const StatisticsListItem = ({ title, total }) => {
+ const StatisticsListItem = ({ title, total }) => {
     return (
       <>
         <h3>{title}</h3>
@@ -6,3 +6,4 @@ export const StatisticsListItem = ({ title, total }) => {
       </>
     );
   };
+export default StatisticsListItem;

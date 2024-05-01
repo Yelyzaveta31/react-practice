@@ -1,5 +1,18 @@
-export const Container = () => {
+import  StatisticsListItem from "../StatisticListItem/StatisticListItem";
+
+export const StatisticsList = ({ stats, title }) => {
   return (
-    <div>Container</div>
-  )
-}
+    <div>
+       {title && <h3>{title}</h3>}
+      <ul>
+        {stats.map((item) => {
+          return (
+            <li key={item.id}>
+              <StatisticsListItem title={item.title} total={item.total} />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};

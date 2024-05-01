@@ -1,7 +1,8 @@
-import { Container, Section, StatisticsList, BlogCard } from "components";
-import Heading from "components/Heading/Heading";
-import article from "./components/data/article.json";
-import stats from "./components/data/stats.json";
+import { Container, Section } from "components";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import Points from "tabs/Points/Points";
+import Props from "tabs/Props/Props";
 
 
 function App() {
@@ -9,9 +10,18 @@ function App() {
     <>
     <Section>
      <Container>
-      <BlogCard {...article} />
-    <Heading title="Statistic List"/>
-   <StatisticsList stats={stats} title="Statistics" />
+     <Tabs>
+    <TabList>
+      <Tab>Points</Tab>
+      <Tab>Props</Tab>
+    </TabList>
+    <TabPanel>
+      <Points/>
+    </TabPanel>
+    <TabPanel>
+     <Props/>
+    </TabPanel>
+  </Tabs>
      </Container>
      </Section>
     </>

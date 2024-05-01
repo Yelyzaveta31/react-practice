@@ -1,25 +1,36 @@
-import PointsOptions from "components/PointsOptions/PointsOptions";
-import { useState } from "react";
+import { PointsOptions, PointsStatistic } from 'tabs';
+import { Natification } from '..';
 
-const Points = () => {
-  const [points, setPoints] = useState({
-    one: 0,
-    two: 0,
-    three: 0,
-    four: 0,
-    five: 0,
-  });
-  const handleClick = (point, value) => {
-    setPoints(prev => ({ ...prev, [points]: prev[point] + value}));
+import { useLocalStorage } from 'hooks/useLocalStorage';
+
+const initialState = { one: 0, two: 0, three: 0, four: 0, five: 0 };
+
+export const Points = () => {
+  const [points, setPoints] = useLocalStorage('points', initialState);
+
+  const handelClick = (point, value) => {
+    setPoints(prev => ({ ...prev, [point]: prev[point] + value }));
   };
-  console.log(points);
+  const countTotalPoints = () => {
+    return Object.values(points).reduce((acc, value) => acc + value, 0);
+  };
+  const resetPoints = () => {
+    setPoints(initialState);
+  };
+  const total = countTotalPoints();
   return (
-      <div>
-<PointsOptions points={Object.keys(points)} onLeavePoints={handleClick}/>
-
-      </div>
-    );
-  };
-
-
-export default Points;
+    <div>
+      <PointsOptions
+        points={Object.keys(points)}
+        onLeavePoint={handelClick}
+        total={total}
+        resetPoints={resetPoints}
+      />
+      {total > 0 ? (
+        <PointsStatistic total={total} statistics={Object.entries(points)} />
+      ) : (
+        <Natification text="No points" />
+      )}
+    </div>
+  );
+};

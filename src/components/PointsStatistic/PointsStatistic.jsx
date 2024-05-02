@@ -1,4 +1,5 @@
-import { Heading } from '../Heading/Heading';
+import Heading from "components/Heading/Heading";
+
 
 export const PointsStatistic = ({ statistics, total }) => {
   return (

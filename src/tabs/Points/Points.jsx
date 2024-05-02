@@ -1,6 +1,7 @@
-import { PointsOptions, PointsStatistic } from 'tabs';
-import { Natification } from '..';
 
+
+import PointsOptions from 'components/PointsOptions/PointsOptions';
+import { PointsStatistic } from 'components/index';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 
 const initialState = { one: 0, two: 0, three: 0, four: 0, five: 0 };
@@ -28,9 +29,7 @@ export const Points = () => {
       />
       {total > 0 ? (
         <PointsStatistic total={total} statistics={Object.entries(points)} />
-      ) : (
-        <Natification text="No points" />
-      )}
+      ) : 'No points'}
     </div>
   );
 };

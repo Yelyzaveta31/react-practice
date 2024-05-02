@@ -1,4 +1,6 @@
-import { BlogCard, Heading, StatisticsList } from 'components/index';
+
+import Heading from 'components/Heading/Heading';
+import { BlogCard, StatisticsList } from 'components/index';
 import article from 'data/article.json';
 import stats from 'data/stats.json';
 

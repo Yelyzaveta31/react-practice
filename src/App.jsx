@@ -1,11 +1,11 @@
-import { Container, Section } from 'tabs';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-import { Points, Props } from './tabs';
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import { Points, Props } from "./tabs";
+import { Container, Form } from "./components";
 
 function App() {
   return (
-    <Section>
+    <section>
       <Container>
         <Tabs>
           <TabList>
@@ -19,9 +19,10 @@ function App() {
           <TabPanel>
             <Props />
           </TabPanel>
+          <Form />
         </Tabs>
       </Container>
-    </Section>
+    </section>
   );
 }
 
